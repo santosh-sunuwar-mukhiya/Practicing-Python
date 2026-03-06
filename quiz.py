@@ -1,4 +1,3 @@
-#making quiz app using 2D array.
 # Python quiz game
 
 questions = ("How many elements are in the periodic table?: ",
@@ -13,5 +12,31 @@ options = (("A. 116", "B. 117", "C. 118", "D. 119"),
            ("A. 206", "B. 207", "C. 208", "D. 209"),
            ("A. Mercury", "B. Venus", "C. Earth", "D. Mars"))
 
-answers = ()
+answers = ('C', 'D', 'A', 'A', 'B')
 guesses = []
+score = 0
+question_num = 0
+
+for question in questions:
+    print("-" * 20)
+    print(question)
+    for option in options[question_num]:
+        print(option)
+
+    guess = input("Enter (A, B, C, D): ").upper()
+    guesses.append(guess)
+    if guess == answers[question_num]:
+        score += 1
+        print("CORRECT")
+    else: 
+        print("WRONG")
+        print(f"CORRECT ANSWER: {answers[question_num]}")
+
+    question_num += 1
+
+print()
+print(f"ATTEMPTED QUESTION:{question_num}")
+print(f"YOUR SCORE:{score}")
+
+
+
