@@ -50,3 +50,15 @@ def update_shipment(id: int, update: ShipmentUpdate):
         status_code = status.HTTP_404_NOT_FOUND,
         detail = f"shipment with given id #{id} was not found."
     )
+
+@router.delete("/{id}")
+def delete_shipment(id: int):
+    for index, ship in enumerate(shipment):
+        if ship["id"] == id:
+            shipment.pop(index)
+            return {"detail": f"shipment with id #{id} is deleted."}
+
+    raise HTTPException(
+        status_code = status.HTTP_404_NOT_FOUND,
+        detail = f"shipment with given id #{id} was not found."
+    )
