@@ -1,8 +1,15 @@
 from fastapi import FastAPI
 from scalar_fastapi import get_scalar_api_reference
+from contextlib import asynccontextmanager
+from app.database.session import create_db_tables
+from .api.routers.shipment import router
 
-app  = FastAPI()
-
+@asynccontextmanager
+async def lifespan_handler(app: FastAPI):
+    create_db_tables()
+    yield
+app = FastAPI(lifespan=lifespan_handler)
+app.include_router(router)
 @app.get("/")
 def root():
     return {"Message": "Hello World."}
