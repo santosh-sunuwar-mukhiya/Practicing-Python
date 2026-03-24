@@ -9,7 +9,6 @@ class BaseShipment(BaseModel):
 class ShipmentRead(BaseShipment):
     id: int
     status: str
-    estimated_delivery: datetime
 
 class ShipmentCreate(BaseShipment):
     pass
