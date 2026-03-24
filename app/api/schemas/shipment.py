@@ -14,4 +14,4 @@ class ShipmentCreate(BaseShipment):
     pass
 
 class ShipmentUpdate(BaseModel):
-    status: str | None
+    status: str | None = Field(default=None)
