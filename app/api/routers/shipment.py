@@ -1,19 +1,7 @@
 from fastapi import APIRouter, status, HTTPException, Depends
 from ..schemas.shipment import ShipmentRead, ShipmentUpdate, ShipmentCreate
 from app.api.dependencies import ShipmentServiceDep
-from app.database.models import Shipment
-from datetime import UTC, datetime
 router = APIRouter(prefix="/shipment", tags=["shipment"])
-
-# shipment = [
-#     {
-#         "id": 1,
-#         "content": "my book",
-#         "weight": 2.5,
-#         "destination":1120,
-#         "status": "placed"
-#     },
-# ]
 
 @router.get("/{id}", response_model=ShipmentRead)
 def get_shipment(id: int, service: ShipmentServiceDep):

@@ -1,7 +1,9 @@
+from sqlalchemy.orm import Session
+
+
 from app.database.models import Shipment
 from app.api.schemas.shipment import ShipmentCreate
 from datetime import UTC, datetime
-from sqlalchemy.orm import Session
 
 class ShipmentService:
     def __init__(self, session: Session):
