@@ -1,0 +1,2 @@
+wordcount: 2 Hello, World!
+wordcount: 4 I am learning Fastapi!
