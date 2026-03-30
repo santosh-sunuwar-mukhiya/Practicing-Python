@@ -1,5 +1,5 @@
-f = open("/Users/princeysunar/Dev/Practice/App/practice/python/output.txt", "r")
-f_out = open("/Users/princeysunar/Dev/Practice/App/practice/python/print.txt", "w")
+f = open("/practice/python/basics/output.txt", "r")
+f_out = open("/practice/python/basics/print.txt", "w")
 
 for line in f:
     tokens = line.split(" ")
