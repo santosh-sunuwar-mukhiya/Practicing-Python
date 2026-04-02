@@ -1,6 +1,7 @@
 from fastapi import APIRouter, status, HTTPException, Depends
-from ..schemas.shipment import ShipmentRead, ShipmentUpdate, ShipmentCreate
-from app.api.dependencies import ShipmentServiceDep
+from app.api.schemas.shipment import ShipmentRead, ShipmentUpdate, ShipmentCreate
+from app.api.dependencies import ShipmentServiceDep, SellerDep
+
 router = APIRouter(prefix="/shipment", tags=["shipment"])
 
 @router.get("/{id}", response_model=ShipmentRead)
@@ -16,7 +17,7 @@ def get_shipment(id: int, service: ShipmentServiceDep):
     return shipment
 
 @router.post("/",response_model=ShipmentRead, status_code=status.HTTP_201_CREATED)
-def create_shipment(shipment: ShipmentCreate, service: ShipmentServiceDep):
+def create_shipment(shipment: ShipmentCreate, service: ShipmentServiceDep, seller: SellerDep):
     return service.add(shipment)
 
 @router.patch("/{id}", response_model=ShipmentRead)
