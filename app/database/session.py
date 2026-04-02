@@ -1,9 +1,9 @@
 from sqlmodel import SQLModel, Session, create_engine
-from app.config import settings
+from app.config import db_settings
 
 # check_same_thread=False is strictly required for FastAPI + SQLite
 engine = create_engine(
-    settings.DATABASE_URL,
+    db_settings.DATABASE_URL,
     echo=True,
     connect_args={"check_same_thread": False}
 )
