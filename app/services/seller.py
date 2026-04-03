@@ -28,7 +28,7 @@ class SellerService:
 
         if not seller or not password_context.verify(password, seller.password_hash,):
             raise HTTPException(
-                status_code = status.HTTP_401_NOT_UNAUTHORIZED,
+                status_code = status.HTTP_401_UNAUTHORIZED,
                 detail = "Email or Password is incorrect"
             )
 
